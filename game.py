@@ -67,7 +67,7 @@ def compare_input(user_input, computer_input):
             print_win_msg(user_input, computer_input)
 
 
-# defines if user still wants to continue playing
+# determine if user still wants to continue playing
 def is_continue():
     while True:
         user_input = input("Please enter 'y' if want to continue playing, other wise enter 'n' to quit: ")
