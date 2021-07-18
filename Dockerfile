@@ -1,4 +1,4 @@
 FROM python:alpine
 COPY . /app
-WORKDIR /app
+WORKDIR /app/src
 CMD python3 game.py

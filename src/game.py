@@ -9,8 +9,8 @@ def get_user_input():
         if user_input == 'r' or user_input == 'p' or user_input == 's':
             return user_input
         else:
-            print("Your choice " + user_input +
-                  " is an invalid input, please enter a valid move: r - rock, p - paper, s - scissor")
+            print("\nYour choice " + user_input +
+                  " is an invalid input, please enter a valid move: r - rock, p - paper, s - scissor\n")
             continue
 
 
@@ -35,12 +35,12 @@ def convert_input(input_move):
 
 # explain to user why the loss
 def print_lose_msg(user_input, computer_input):
-    print(f'User has LOST! {computer_input} beats {user_input}')
+    print(f'\nUser has LOST! {computer_input} beats {user_input}\n')
 
 
 # explain to user why the win
 def print_win_msg(user_input, computer_input):
-    print(f'User has WON! {user_input} beats {computer_input}')
+    print(f'\nUser has WON! {user_input} beats {computer_input}\n')
 
 
 # logic to determine the outcome of the game
@@ -49,7 +49,7 @@ def compare_input(user_input, computer_input):
     computer_input = convert_input(computer_input)
 
     if user_input == computer_input:
-        print(f"Both user and the computer chose {user_input}, so this round is a tie!")
+        print(f"\nBoth user and the computer chose {user_input}, so this round is a tie!\n")
     elif user_input == 'rock':
         if computer_input == 'scissor':
             print_lose_msg(user_input, computer_input)
@@ -72,11 +72,13 @@ def is_continue():
     while True:
         user_input = input("Please enter 'y' if want to continue playing, other wise enter 'n' to quit: ")
         if user_input == 'y':
+            print("\nLet's play again!\n")
             return
         elif user_input == 'n':
+            print("\nThanks for playing, bye!\n")
             exit()
         else:
-            print("Please enter a valid response: n - quit, y - continue playing")
+            print("\nPlease enter a valid response: n - quit, y - continue playing\n")
             continue
 
 
@@ -91,4 +93,6 @@ def main():
         is_continue()
 
 
-main()
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()
