@@ -4,13 +4,13 @@ import random
 # get the input from the user
 # determine if input is valid, if not then keep asking
 def get_user_input():
-    while True:
-        user_input = input("Please choose your move: 'r' for rock, 'p' for paper, 's' for scissor: ")
-        if user_input == 'r' or user_input == 'p' or user_input == 's':
-            return user_input
-        else:
-            print("\nYour have entered an invalid input, please enter a valid move: r - rock, p - paper, s - scissor\n")
-            continue
+    user_input = input("Please choose your move: 'r' for rock, 'p' for paper, 's' for scissor: ")
+    if user_input == 'r' or user_input == 'p' or user_input == 's':
+        return user_input
+    else:
+        print("\nYou have entered an invalid input, please enter a valid move: r - rock, p - paper, s - scissor\n")
+        user_input = "invalid"
+        return user_input
 
 
 # get the input from the computer
@@ -68,28 +68,29 @@ def compare_input(user_input, computer_input):
 
 # determine if user still wants to continue playing
 def is_continue():
-    while True:
-        user_input = input("Please enter 'y' if want to continue playing, other wise enter 'n' to quit: ")
-        if user_input == 'y':
-            print("\nLet's play again!\n")
-            return
-        elif user_input == 'n':
-            print("\nThanks for playing, bye!\n")
-            exit()
-        else:
-            print("\nPlease enter a valid response: n - quit, y - continue playing\n")
-            continue
+    user_input = input("Please enter 'y' if want to continue playing, other wise enter 'n' to quit: ")
+    if user_input == 'y':
+        print("\nLet's play again!\n")
+        return True
+    elif user_input == 'n':
+        print("\nThanks for playing, bye!\n")
+        return False
+    else:
+        print("\nInvalid input, terminating program!\n")
+        return False
 
 
 # the driver function for the program
 def main():
-
     print("Welcome to the Rock-Paper-Scissor game!")
     while True:
         user_input = get_user_input()
+        if user_input is "invalid":
+            continue
         computer_input = computer_choice()
         compare_input(user_input, computer_input)
-        is_continue()
+        if not is_continue():
+            exit()
 
 
 if __name__ == "__main__":
