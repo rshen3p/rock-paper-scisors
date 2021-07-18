@@ -9,8 +9,7 @@ def get_user_input():
         if user_input == 'r' or user_input == 'p' or user_input == 's':
             return user_input
         else:
-            print("\nYour choice " + user_input +
-                  " is an invalid input, please enter a valid move: r - rock, p - paper, s - scissor\n")
+            print("\nYour have entered an invalid input, please enter a valid move: r - rock, p - paper, s - scissor\n")
             continue
 
 
@@ -35,12 +34,12 @@ def convert_input(input_move):
 
 # explain to user why the loss
 def print_lose_msg(user_input, computer_input):
-    print(f'\nUser has LOST! {computer_input} beats {user_input}\n')
+    print(f'\nUser has LOST! Computer used {computer_input} to beat {user_input}\n')
 
 
 # explain to user why the win
 def print_win_msg(user_input, computer_input):
-    print(f'\nUser has WON! {user_input} beats {computer_input}\n')
+    print(f'\nUser has WON! User used {user_input} to beat {computer_input}\n')
 
 
 # logic to determine the outcome of the game
@@ -51,7 +50,7 @@ def compare_input(user_input, computer_input):
     if user_input == computer_input:
         print(f"\nBoth user and the computer chose {user_input}, so this round is a tie!\n")
     elif user_input == 'rock':
-        if computer_input == 'scissor':
+        if computer_input == 'paper':
             print_lose_msg(user_input, computer_input)
         else:
             print_win_msg(user_input, computer_input)
