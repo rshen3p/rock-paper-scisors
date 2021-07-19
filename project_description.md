@@ -1,4 +1,8 @@
 # Project Description & Conclusion
+### Usage
+* Make sure docker is installed, then build docker image with `docker build -t {image-name} {PATH}`
+* To run the program, execute `docker run -it {image-name}` command
+* To run the tests, execute `docker run -it {image-name} pytest -v` command
 
 ### Work Flow Logic
 * First step is to get and validate user input
@@ -13,7 +17,7 @@
     * if user choose **scissor**, then it will lose against **rock**, but win against **paper**
  * Finally, ask the user if he or she still wants to continue playing
     * validate input as only 'y' or 'n' should be accepted
-    
+  
 ### Possible Improvement
 * The mechanism for valid input checking can be improved:
     * use of try/except block

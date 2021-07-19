@@ -2,6 +2,7 @@ from io import StringIO
 import src.game as game
 
 
+# Testing the get_user_input() method
 def test_get_user_input_rock(monkeypatch):
     user_input = StringIO('r\n')
     monkeypatch.setattr('sys.stdin', user_input)
@@ -44,6 +45,7 @@ def test_get_user_input_invalid_empty_inputs(monkeypatch):
     assert game.get_user_input() == 'invalid'
 
 
+# Test convert_input() method
 def test_convert_input_rock():
     assert game.convert_input('r') == 'rock'
 
@@ -56,6 +58,7 @@ def test_convert_input_scissor():
     assert game.convert_input('s') == 'scissor'
 
 
+# Test compare_input() input
 def test_compare_input_rock_beat_scissor(capfd):
     game.compare_input('r', 's')
     out, err = capfd.readouterr()
@@ -110,6 +113,7 @@ def test_compare_input_rock_ties_rock(capfd):
     assert out == "\nBoth user and the computer chose rock, so this round is a tie!\n\n"
 
 
+# Test is_continue()
 def test_is_continue_yes(monkeypatch):
     user_input = StringIO('y\n')
     monkeypatch.setattr('sys.stdin', user_input)
