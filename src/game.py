@@ -85,7 +85,7 @@ def main():
     print("Welcome to the Rock-Paper-Scissor game!")
     while True:
         user_input = get_user_input()
-        if user_input is "invalid":
+        if user_input == "invalid":
             continue
         computer_input = computer_choice()
         compare_input(user_input, computer_input)
